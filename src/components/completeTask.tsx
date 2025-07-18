@@ -1,4 +1,6 @@
 import { setTaskComplete } from "@/app/actions";
+import { Check, Minus } from "@deemlol/next-icons";
+import ActionBtn from "./actionBtn";
 
 export default function CompleteTask({
   taskId,
@@ -8,7 +10,7 @@ export default function CompleteTask({
   taskDone: boolean;
 }) {
   return (
-    <form action={setTaskComplete}>
+    <form action={setTaskComplete} className="flex m-auto">
       <input
         type="text"
         hidden
@@ -17,9 +19,13 @@ export default function CompleteTask({
         name="done"
       />
       <input type="text" hidden readOnly defaultValue={taskId} name="id" />
-      <button type="submit" className="cursor-pointer">
-        {taskDone ? "Rehacer" : "Completar"}
-      </button>
+      <ActionBtn>
+        {taskDone ? (
+          <Minus className="size-full" />
+        ) : (
+          <Check className="size-full" />
+        )}
+      </ActionBtn>
     </form>
   );
 }

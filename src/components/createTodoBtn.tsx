@@ -1,5 +1,7 @@
 "use client";
 
+import { Plus } from "@deemlol/next-icons";
+
 export default function CreateTodoBtn() {
   const handleClickDialog = () => {
     const dialogElement = document.getElementById(
@@ -10,13 +12,11 @@ export default function CreateTodoBtn() {
   };
 
   return (
-    <>
-      <button
-        onClick={handleClickDialog}
-        className="cursor-pointer hover:bg-green-700 p-1 rounded-lg"
-      >
-        Create
-      </button>
-    </>
+    <button
+      onClick={handleClickDialog}
+      className="cursor-pointer hover:bg-green-700 p-2 rounded-full"
+    >
+      <Plus className="size-full" />
+    </button>
   );
 }

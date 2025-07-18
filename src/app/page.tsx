@@ -13,8 +13,8 @@ export default async function Home() {
   return (
     <>
       <DialogCreateTodo />
-      <header className="flex justify-between items-center p-6">
-        <h1 className="text-2xl">Todo List</h1>
+      <header className="flex items-center p-4 gap-6">
+        <h1 className="text-2xl">Todos</h1>
         <CreateTodoBtn />
       </header>
       <main className="px-4">
@@ -22,8 +22,8 @@ export default async function Home() {
           <h2>Tasks</h2>
           <article className="p-4 flex gap-4">
             {tasks.length == 0 && <p>No todos</p>}
-            {tasks.map((todo, index) => (
-              <Todo todo={todo} index={index} key={todo.id} />
+            {tasks.map((todo) => (
+              <Todo todo={todo} key={todo.id} />
             ))}
           </article>
         </section>
@@ -32,8 +32,8 @@ export default async function Home() {
           <h2>Completed</h2>
           <article className="p-4 flex gap-4">
             {completed.length == 0 && <p>No completed todos</p>}
-            {completed.map((todo, index) => (
-              <Todo todo={todo} index={index} key={todo.id} />
+            {completed.map((todo) => (
+              <Todo todo={todo} key={todo.id} />
             ))}
           </article>
         </section>
