@@ -1,14 +1,12 @@
 "use server";
+import { API_TODOS, HEADERS } from "@/constants";
 import { revalidatePath } from "next/cache";
-
-const API_URL = "http://localhost:8000/todo";
-const HEADERS = { "Content-Type": "application/json" };
 
 export async function createTodo(formData: FormData) {
   const name = formData.get("name");
   const description = formData.get("description");
 
-  const res = await fetch(API_URL, {
+  const res = await fetch(API_TODOS, {
     method: "POST",
     headers: HEADERS,
     body: JSON.stringify({ name, description }),
@@ -20,8 +18,6 @@ export async function createTodo(formData: FormData) {
     });
   }
 
-  console.log(await res.json());
-
   revalidatePath("/");
 }
 
@@ -29,7 +25,7 @@ export async function setTaskComplete(formData: FormData) {
   const id = formData.get("id");
   const done = formData.get("done") === "true";
 
-  const res = await fetch(`${API_URL}/${id}`, {
+  const res = await fetch(`${API_TODOS}/${id}`, {
     method: "PATCH",
     headers: HEADERS,
     body: JSON.stringify({ done }),
@@ -41,15 +37,13 @@ export async function setTaskComplete(formData: FormData) {
     });
   }
 
-  console.log(await res.json());
-
   revalidatePath("/");
 }
 
 export async function deleteTodo(formData: FormData) {
   const id = formData.get("id");
 
-  const res = await fetch(`${API_URL}/${id}`, {
+  const res = await fetch(`${API_TODOS}/${id}`, {
     method: "DELETE",
     headers: HEADERS,
   });
@@ -59,8 +53,6 @@ export async function deleteTodo(formData: FormData) {
       message: `Cannot delete todo. Error ${res.status}: ${res.statusText}`,
     });
   }
-
-  console.log(await res.json());
 
   revalidatePath("/");
 }

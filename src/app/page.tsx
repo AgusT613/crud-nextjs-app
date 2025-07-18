@@ -2,9 +2,10 @@ import CreateTodoBtn from "@/components/createTodoBtn";
 import DialogCreateTodo from "@/components/dialogCreateTodo";
 import Todo from "@/components/todo";
 import { ITodo } from "@/interfaces/todo.interface";
+import { API_TODOS } from "@/constants";
 
 export default async function Home() {
-  const data = await fetch("http://localhost:8000/todo");
+  const data = await fetch(API_TODOS);
   const todos: ITodo[] = await data.json();
   const tasks: ITodo[] = todos.filter((todo) => !todo.done);
   const completed: ITodo[] = todos.filter((todo) => todo.done);
