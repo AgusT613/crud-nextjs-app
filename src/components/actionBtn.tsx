@@ -1,10 +1,19 @@
 import { ReactNode } from "react";
 
-export default function ActionBtn({ children }: { children: ReactNode }) {
+export default function ActionBtn({
+  children,
+  type,
+  onClick,
+}: {
+  children: ReactNode;
+  type?: "submit";
+  onClick?: () => void;
+}) {
   return (
     <button
-      type="submit"
-      className="p-2 rounded-full size-9 hover:bg-blue-600 cursor-pointer"
+      onClick={onClick}
+      type={type}
+      className="p-2 rounded-full hover:bg-blue-600 cursor-pointer"
     >
       {children}
     </button>

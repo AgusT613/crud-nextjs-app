@@ -56,3 +56,19 @@ export async function deleteTodo(formData: FormData) {
 
   revalidatePath("/");
 }
+
+export async function editTask(id: number, name: string, description: string) {
+  const res = await fetch(`${API_TODOS}/${id}`, {
+    method: "PATCH",
+    headers: HEADERS,
+    body: JSON.stringify({ name, description }),
+  });
+
+  if (!res.ok) {
+    console.log({
+      message: `Cannot update todo. Error ${res.status}: ${res.statusText}`,
+    });
+  }
+
+  revalidatePath("/");
+}

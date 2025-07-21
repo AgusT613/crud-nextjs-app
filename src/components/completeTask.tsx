@@ -19,12 +19,8 @@ export default function CompleteTask({
         name="done"
       />
       <input type="text" hidden readOnly defaultValue={taskId} name="id" />
-      <ActionBtn>
-        {taskDone ? (
-          <Minus className="size-full" />
-        ) : (
-          <Check className="size-full" />
-        )}
+      <ActionBtn type="submit">
+        {taskDone ? <Minus className="size-4" /> : <Check className="size-4" />}
       </ActionBtn>
     </form>
   );
