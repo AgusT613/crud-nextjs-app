@@ -21,7 +21,7 @@ export default async function Home() {
         <section>
           <h2>Tasks</h2>
           <article className="p-4 flex gap-4">
-            {tasks.length == 0 && <p>No todos</p>}
+            {tasks.length == 0 && <p>No to-do&apos;s</p>}
             {tasks.map((todo) => (
               <Todo todo={todo} key={todo.id} />
             ))}
@@ -31,7 +31,7 @@ export default async function Home() {
         <section>
           <h2>Completed</h2>
           <article className="p-4 flex gap-4">
-            {completed.length == 0 && <p>No completed todos</p>}
+            {completed.length == 0 && <p>No completed to-do&apos;s</p>}
             {completed.map((todo) => (
               <Todo todo={todo} key={todo.id} />
             ))}

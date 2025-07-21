@@ -1,6 +1,7 @@
 "use client";
 
 import { Plus } from "@deemlol/next-icons";
+import ActionBtn from "./actionBtn";
 
 export default function CreateTodoBtn() {
   const handleClickDialog = () => {
@@ -12,11 +13,8 @@ export default function CreateTodoBtn() {
   };
 
   return (
-    <button
-      onClick={handleClickDialog}
-      className="cursor-pointer hover:bg-green-700 p-2 rounded-full"
-    >
+    <ActionBtn onClick={handleClickDialog}>
       <Plus className="size-full" />
-    </button>
+    </ActionBtn>
   );
 }

@@ -13,7 +13,7 @@ export default function ActionBtn({
     <button
       onClick={onClick}
       type={type}
-      className="p-2 rounded-full hover:bg-blue-600 cursor-pointer"
+      className="p-2 rounded-full hover:bg-blue-600 cursor-pointer outline outline-blue-600"
     >
       {children}
     </button>
